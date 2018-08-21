@@ -1,6 +1,7 @@
-const nunjucks = require('nunjucks');
+const nunjucks = require('nunjucks')
 const express = require('express');
 const routes = require('./app/routes');
+const path = require('path')
 
 
 const app = express();
@@ -8,23 +9,33 @@ const port = (process.env.PORT || 3574);
 
 const https = require('https')
 
-nunjucks.configure(
-  [
-    'src/app',
-    'app/views',
-    'node_modules/govuk-frontend/',
-    'node_modules/govuk-frontend/components/'
-  ], {
+// Application settings
+app.set('view engine', 'html')
+
+// Set the location of the views and govuk_template layout file
+var appViews = [
+  'app/views',
+  'node_modules/govuk_template_jinja/views/layouts'
+]
+
+nunjucks.configure(appViews, {
   express: app,
   autoescape: true,
   watch: true,
-  noCache: true,
-});
+  noCache: true
+})
 
-app.set('view engine', 'html');
-app.use('/static', express.static('dist'));
+app.use('/dist', express.static('dist'))
+app.use('/dist', express.static(path.join(__dirname, '/node_modules/govuk_template_jinja/assets')))
+app.use('/dist', express.static(path.join(__dirname, '/node_modules/govuk_frontend_toolkit')))
 
-routes.bind(app);
+// send assetPath to all views
+app.use(function (req, res, next) {
+  res.locals.asset_path = '/dist/'
+  next()
+})
+
+routes.bind(app, '/dist/');
 
 const httpsOptions = {
   key: '-----BEGIN RSA PRIVATE KEY-----\n' +
