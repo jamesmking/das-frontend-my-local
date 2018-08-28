@@ -14,7 +14,6 @@ let sassOptions;
 
 sassOptions = {
   errLogToConsole: true,
-  outputStyle: 'compressed',
   includePaths: [
     'node_modules/govuk_frontend_toolkit/stylesheets',
     'node_modules/govuk-elements-sass/public/sass'
@@ -40,5 +39,6 @@ gulp.task('sass', () => gulp
   .src(input)
   .pipe(sass(sassOptions))
   .pipe(gulp.dest(output)));
+
 
 gulp.task('default', ['sass', 'watch']);

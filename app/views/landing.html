@@ -1,0 +1,383 @@
+<!doctype html><html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="type" value="marketing-designer-content-editor-document" type="xrm/designer/setting">
+
+    <title>Landing page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+      $(function () {
+        $('p').each(function () {
+
+          var trimmedP = $.trim($(this).text());
+          var isYouTube = getId(trimmedP);
+
+          if (isYouTube) {
+            $(this).html('<div class="youtube-video"><iframe width="560" height="315" src="//www.youtube.com/embed/'
+              + isYouTube + '" frameborder="0" allowfullscreen></iframe></div>');
+          }
+
+        });
+
+      });
+
+      function getId(url) {
+        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        var match = url.match(regExp);
+
+        if (match && match[2].length == 11) {
+          return match[2];
+        } else {
+          return false;
+        }
+      }
+
+    </script>
+    <style>
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+            background: #dee0e2;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            background: #eee;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        body {
+            background: #F8F8F8;
+            color: #0b0c0c;
+            font-family: "Helvetica Neue", Arial, Sans-Serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.4em;
+        }
+
+        .wrap {
+            background: #fff;
+        }
+
+        @media (min-width: 641px) {
+            .wrap {
+                max-width: 960px;
+                margin: 0 auto;
+            }
+        }
+
+        .logo {
+            text-align: center;
+            max-width: 200px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 641px) {
+            .logo {
+                max-width: 330px;
+            }
+        }
+
+        .navigation {
+            background: #333;
+        }
+
+        .navigation ul {
+            text-align: center;
+        }
+
+        .navigation ul li {
+            display: inline-block;
+        }
+
+        .navigation p {
+            padding: 0;
+            margin: 0;
+        }
+
+        .navigation a {
+            padding: 15px;
+            display: block;
+            color: #fff;
+        }
+
+        .main {
+            padding: 15px;
+        }
+
+        @media (min-width: 641px) {
+            .main {
+                padding: 30px;
+            }
+        }
+
+        .hero {
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 300;
+            line-height: 1.2em;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 300;
+            line-height: 1.2em;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 600px) {
+
+            .grid-row {
+                margin: 0 -15px;
+            }
+
+            .grid-row:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .column-one-third {
+                padding: 0 15px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                float: left;
+                width: 33.33%;
+            }
+        }
+
+        .column-image {
+            margin-bottom: 15px;
+        }
+
+        .youtube-video {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            padding-top: 25px;
+            height: 0;
+
+        }
+
+        .youtube-video iframe,
+        .youtube-video object,
+        .youtube-video embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer {
+            background: #dee0e2;
+            border-top: 1px solid #a1acb2;
+            padding: 30px;
+            color: #454a4c;
+        }
+
+        .footer a {
+            color: #333;
+        }
+
+        .footer ul.platform-help-links li {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="wrap">
+    <div class="header">
+        <div class="logo">
+            <img src="https://www.inspiringthefuture.org/wp-content/uploads/2016/10/Apprenticeships-logo-to-use-e1477663376493-768x245.png" alt="Alt text here">
+        </div>
+        <div class="navigation">
+            <ul>
+                <li data-container="true" id="container6e1b96765da641535101029013">
+
+                    <div data-editorblocktype="Text"><p><a href="#" style="display: block;">Click me</a></p></div>
+
+                </li>
+                <li data-container="true" id="container6d02368190a591535101029013">
+
+                    <div data-editorblocktype="Text"><p><a href="#" style="display: block;">Click me</a></p>
+                    </div>
+
+                </li>
+                <li data-container="true" id="container30f1d2ad5557e1535101029013">
+
+                    <div data-editorblocktype="Text"><p><a href="#" style="display: block;">Click me</a></p>
+                    </div>
+
+                </li>
+
+                <li data-container="true" id="containerdad3c302806891535445446073">
+
+                    <div data-editorblocktype="Text"><p><a href="#" style="display: block;">Click me</a></p>
+                    </div></li>
+                <li data-container="true" id="container8acba010b2e181535445446073">
+
+                    <div data-editorblocktype="Text"><p><a href="#" style="display: block;">Click me</a></p>
+                    </div></li>
+                <li data-container="true" id="container88133bd458dec1535445446073">
+
+                    <div data-editorblocktype="Text"><p><a href="#" style="display: block;">Click me</a></p>
+                    </div></li>
+
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="hero">
+            <div data-container="true" id="container5aa80c50eae1c1535100442237">
+                <div data-editorblocktype="Image">
+                    <div class="imageWrapper"><img src="https://mktdplp102usda.blob.core.windows.net/0e9d07fa-78a7-e811-a979-00224800c5e8/ZYtgZ2vShO5dEqIqoe5_fIEa31w-G213RxP4B3lvN3Q!"></div>
+
+                </div>
+            </div>
+        </div>
+        <h1 data-container="true" id="containere6b8ad422b8ff1535100538352">
+            <div data-editorblocktype="Text"><p>Enter your landing page title here</p></div>
+        </h1>
+        <div data-container="true" id="containerc9e1894f934411535100538352">
+            <div data-editorblocktype="Text"><p>Enter your text here</p></div>
+        </div>
+        <div class="grid-row">
+            <div class="column-one-third">
+                <div class="column-image">
+                    <div data-container="true" id="containerd8d1226298d181535100687390">
+                        <div data-editorblocktype="Image">
+                            <div class="imageWrapper">
+                                <img src="https://mktdplp102usda.blob.core.windows.net/0b9d07fa-78a7-e811-a979-00224800c5e8/XQvQ_684Tyn2y-z489uEwKvpDopxLA6ZlUqbAAbV8ko!">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-container="true" id="container4c6d78ba4ffa71535100687390"><div data-editorblocktype="Text"><h2>Heading</h2></div></div>
+                <div data-container="true" id="container7ce3e4d903c381535101029013">
+                    <div data-editorblocktype="Text"><p>Enter your text here</p>
+                    </div></div>
+            </div>
+            <div class="column-one-third">
+                <div class="column-image">
+                    <div data-container="true" id="containerb76ef07e1d2771535100687390">
+                        <div data-editorblocktype="Image">
+                            <div class="imageWrapper">
+                                <img src="https://mktdplp102usda.blob.core.windows.net/0c9d07fa-78a7-e811-a979-00224800c5e8/z1ycXSJzLjBbmipcJ2plj_4axNxLpWBXwOQsgFj0584!">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-container="true" id="containerf1e6350efdbd21535100687390"><div data-editorblocktype="Text"><h2>Heading</h2></div></div>
+                <div data-container="true" id="container55a051f73aedd1535101029013">
+                    <div data-editorblocktype="Text"><p>Enter your text here</p>
+                    </div></div>
+            </div>
+            <div class="column-one-third">
+                <div class="column-image">
+                    <div data-container="true" id="containerea5dded9473a71535100687390">
+                        <div data-editorblocktype="Image">
+                            <div class="imageWrapper">
+                                <img src="https://mktdplp102usda.blob.core.windows.net/0d9d07fa-78a7-e811-a979-00224800c5e8/8rlNyhS0tffXxMIluTnVEnKhyAV9VB7xat0_y5yqMxc!">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-container="true" id="container8fd981339cc711535100687390"><div data-editorblocktype="Text"><h2>Heading</h2></div></div>
+                <div data-container="true" id="container2ed0db319cf981535101029013">
+                    <div data-editorblocktype="Text"><p>Enter your text here</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-wrapper">
+            <div class="footer-meta">
+                <div class="footer-meta-inner">
+                    <ul class="platform-help-links">
+                        <li data-container="true" id="containerc792e9d6bd4121535101029013">
+
+                            <div data-editorblocktype="Text"><p><a href="#" style="display: block;">Footer link</a></p>
+
+                            </div></li>
+                        <li data-container="true" id="containerc6aff6d2a17a81535101029013">
+                            <div data-editorblocktype="Text"><p><a href="#" style="display: block;">Footer link</a></p>
+
+                            </div></li>
+                        <li data-container="true" id="container04e11a0e50b1e1535101029013">
+                            <div data-editorblocktype="Text"><p><a href="#" style="display: block;">Footer link</a></p>
+
+                            </div></li>
+                    </ul>
+                    <div data-container="true" id="containerecfc54e8038a61535101029013">
+                        <div data-editorblocktype="Text"><p>Enter your text here</p>
+                        </div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body></html>

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="type" value="marketing-designer-content-editor-document" type="xrm/designer/setting" />
+
+    <title>Landing page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+        $(function () {
+          $('p').each(function () {
+
+            var trimmedP = $.trim($(this).text());
+            var isYouTube = getId(trimmedP);
+
+            if (isYouTube) {
+              $(this).html('<div class="youtube-video"><iframe width="560" height="315" src="//www.youtube.com/embed/'
+                + isYouTube + '" frameborder="0" allowfullscreen></iframe></div>');
+            }
+
+          });
+
+        });
+
+        function getId(url) {
+          var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+          var match = url.match(regExp);
+
+          if (match && match[2].length == 11) {
+            return match[2];
+          } else {
+            return false;
+          }
+        }
+
+    </script>
+    <style>
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+            background: #dee0e2;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        body {
+            background: #eee;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        body {
+            background: #F8F8F8;
+            color: #0b0c0c;
+            font-family: "Helvetica Neue", Arial, Sans-Serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.4em;
+        }
+
+        .wrap {
+            background: #fff;
+        }
+
+        @media (min-width: 641px) {
+            .wrap {
+                max-width: 960px;
+                margin: 0 auto;
+            }
+        }
+
+        .logo {
+            text-align: center;
+            max-width: 200px;
+            padding: 20px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 641px) {
+            .logo {
+                max-width: 330px;
+            }
+        }
+
+
+        .navigation {
+            background: #333;
+        }
+
+        .navigation ul {
+            text-align: center;
+        }
+
+        .navigation ul li {
+            display: inline-block;
+        }
+
+        .navigation a {
+            padding: 15px;
+            display: block;
+            color: #fff;
+        }
+
+        .main {
+            padding: 15px;
+        }
+
+        @media (min-width: 641px) {
+            .main {
+                padding: 30px;
+            }
+        }
+
+
+
+        .hero {
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 600px) {
+
+            .grid-row {
+                margin: 0 -15px;
+            }
+
+            .grid-row:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+
+            .column-one-third {
+                padding: 0 15px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                float: left;
+                width: 33.33%;
+            }
+        }
+
+        .column-image {
+            margin-bottom: 15px;
+        }
+
+        .youtube-video {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            padding-top: 25px;
+            height: 0;
+
+        }
+
+        .youtube-video iframe,
+        .youtube-video object,
+        .youtube-video embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .footer {
+            background: #dee0e2;
+            border-top: 1px solid #a1acb2;
+            padding: 30px;
+            color: #454a4c;
+        }
+
+        .footer a {
+            color: #333;
+        }
+
+        .footer ul.platform-help-links li {
+            display: inline-block;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="header">
+            <div class="logo">
+                <img src="https://www.inspiringthefuture.org/wp-content/uploads/2016/10/Apprenticeships-logo-to-use-e1477663376493-768x245.png" alt="Alt text here">
+            </div>
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                    <li>
+                        <a href="#">Link</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="hero">
+                <img src="https://mktdplp102usda.blob.core.windows.net/0e9d07fa-78a7-e811-a979-00224800c5e8/ZYtgZ2vShO5dEqIqoe5_fIEa31w-G213RxP4B3lvN3Q!" alt="Alt text here">
+            </div>
+            <h1>Grow your business with apprentices</h1>
+            <p class="lede">Apprenticeships help you to grow your own talent, reduce staff turnover and give your business the skills it needs to succeed.</p>
+            <p>We’ll show you how apprenticeships can work for your business.</p>
+            <div class="grid-row">
+                <div class="column-one-third">
+                    <div class="column-image">
+                        <img src="https://hireanapprentice.campaign.gov.uk/wp-content/uploads/sites/66/2018/02/Fairfield_1200x900px.jpg-BW.jpg" alt="Alt text here">
+                    </div>
+                    <h2>Heading</h2>
+                    <p>This Nottinghamshire-based company have a 95% retention rate for ex-apprentices.</p>
+                </div>
+                <div class="column-one-third">
+                    <div class="column-image">
+                        <img src="https://hireanapprentice.campaign.gov.uk/wp-content/uploads/sites/66/2018/02/Beauty-oasis-BW-resized.jpg" alt="Alt text here">
+                    </div>
+                    <h2>Heading</h2>
+                    <p>This Nottinghamshire-based company have a 95% retention rate for ex-apprentices.</p>
+                </div>
+                <div class="column-one-third">
+                    <div class="column-image">
+                        <img src="https://hireanapprentice.campaign.gov.uk/wp-content/uploads/sites/66/2018/02/blue-BW.jpg" alt="Alt text here">
+                    </div>
+                    <h2>Heading</h2>
+                    <p>This Nottinghamshire-based company have a 95% retention rate for ex-apprentices.</p>
+                    <div>https://www.youtube.com/watch?v=hzo5zo4oFY0</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-wrapper">
+                <div class="footer-meta">
+                    <div class="footer-meta-inner">
+                        <ul class="platform-help-links">
+                            <li><a href="/service/help">Help</a></li>
+                            <li><a href="https://www.surveymonkey.co.uk/r/2JPLQ9T" target="_blank">Feedback</a></li>
+                            <li><a href="/service/privacy">Privacy and cookies</a></li>
+                        </ul>
+                        <div class="open-government-licence">
+                            <p>
+                                All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

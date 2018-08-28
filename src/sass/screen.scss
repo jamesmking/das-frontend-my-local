@@ -1,3 +1,24 @@
 @import "govuk-elements";
 
 @import "graphs";
+
+body::before {content: "default";
+  position: fixed;
+  top: 1px; right: 1px;
+  z-index: 100;
+  padding: 1ch;
+  background: rgba(0,0,0,0.67);
+  color: rgba(255,255,255,0.75);
+  font: bold 16px Lucida Grande, sans-serif;}
+
+@include media(tablet) {
+  body::before {content: "Tablet";}
+}
+
+@include media(desktop) {
+body::before {content: "Desktop";}
+}
+
+@include media(tablet) {
+body::before {content: "";}
+}
