@@ -1697,25 +1697,14 @@ input[type=number] {
       .graph-heading-group p.meta {
         font-size: 16px; } }
 
-body::before {
-  content: "default";
-  position: fixed;
-  top: 1px;
-  right: 1px;
-  z-index: 100;
-  padding: 1ch;
-  background: rgba(0, 0, 0, 0.67);
-  color: rgba(255, 255, 255, 0.75);
-  font: bold 16px Lucida Grande, sans-serif; }
-
-@media (min-width: 641px) {
-  body::before {
-    content: "Tablet"; } }
-
-@media (min-width: 769px) {
-  body::before {
-    content: "Desktop"; } }
-
-@media (min-width: 641px) {
-  body::before {
-    content: ""; } }
+.phase-banner {
+  margin: 0 15px; }
+  @media (min-width: 641px) {
+    .phase-banner {
+      margin: 0 30px; } }
+  @media (min-width: 1020px) {
+    .phase-banner {
+      margin: 0 auto;
+      max-width: 960px; } }
+  .phase-banner p {
+    display: table; }

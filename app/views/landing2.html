@@ -1,0 +1,477 @@
+<!doctype html><html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="type" value="marketing-designer-content-editor-document" type="xrm/designer/setting">
+
+    <title>Education &amp; Skills Funding Agency</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+
+      $(function () {
+        $('p').each(function () {
+
+          var trimmedP = $.trim($(this).text());
+          var isYouTube = getId(trimmedP);
+
+          if (isYouTube) {
+            $(this).html('<div class="youtube-video"><iframe width="560" height="315" src="//www.youtube.com/embed/'
+              + isYouTube + '" frameborder="0" allowfullscreen></iframe></div>');
+          }
+
+        });
+
+        $('a').prop('target', '_blank');
+
+      });
+
+      function getId(url) {
+        var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        var match = url.match(regExp);
+
+        if (match && match[2].length == 11) {
+          return match[2];
+        } else {
+          return false;
+        }
+      }
+
+    </script>
+    <style>
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+            background: #dee0e2;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        body {
+            background: #fff;
+            color: #0b0c0c;
+            font-family: "Helvetica Neue", Arial, Sans-Serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.4em;
+        }
+
+        .wrap {
+            background: #fff;
+        }
+
+        @media (min-width: 641px) {
+            .wrap {
+                max-width: 1100px;
+                margin: 0 auto;
+            }
+        }
+
+        .header {
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .logo {
+            text-align: center;
+            max-width: 200px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 641px) {
+            .logo {
+                max-width: 330px;
+                float: right;
+            }
+        }
+
+        .main {
+            padding: 15px;
+        }
+
+        @media (min-width: 641px) {
+            .main {
+                padding: 30px;
+            }
+        }
+
+        .hero {
+            position: relative;
+        }
+
+        .hero .strapline {
+            position: absolute;
+            background: rgba(255, 255, 255, .5);
+            color: #000;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            line-height: 1.2em;
+        }
+
+        @media (min-width: 641px) {
+            .hero {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            .hero .strapline {
+                font-size: 1.4em;
+                padding: 10px 20px;
+                left: 30px;
+                right: 30px;
+            }
+        }
+
+        @media (min-width: 820px) {
+            .hero .strapline {
+                font-size: 1.6em;
+            }
+        }
+
+        .hero-trio {
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            line-height: 1.2em;
+        }
+
+        b, strong {
+            font-weight: bold;
+        }
+
+        @media (min-width: 641px) {
+            .grid-row {
+                margin-left: -15px;
+                margin-right: -15px;
+                margin-bottom: 10px;
+            }
+
+            .grid-row:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+        }
+
+        .column-one-third,
+        .column-half,
+        .column-two-thirds {
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 641px) {
+            .column-one-third,
+            .column-half,
+            .column-two-thirds {
+                padding: 0 15px;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                float: left;
+                width: 33.33%;
+            }
+            .column-half {
+                width: 50%;
+            }
+            .column-two-thirds {
+                width: 66.66%;
+            }
+        }
+
+        .youtube-video {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            padding-top: 25px;
+            height: 0;
+
+        }
+
+        .youtube-video iframe,
+        .youtube-video object,
+        .youtube-video embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .main {
+            padding-bottom: 15px;
+        }
+
+        .main a {
+            color: #09c;
+        }
+
+        .main h2 {
+            color: #C03B31;
+            font-size: 1.6em;
+            margin-bottom: .5em;
+        }
+
+        .main h2 img {
+            max-height: 1.6em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .main ul {
+            list-style: none;
+            padding-left: 1em;
+        }
+
+        .main ul li:before {
+            content: "•";
+            color: #09c;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .footer {
+            background: #dee0e2;
+            background: #fff;
+            border-top: 1px solid #a1acb2;
+            padding: 15px;
+            overflow: visible;
+        }
+
+        .footer-logo {
+            max-height: 80px;
+            display: inline-block;
+            margin-bottom: 15px;
+            margin-right: 15px;
+        }
+
+        .footer-logo img {
+            max-height: 80px;
+        }
+
+        @media (min-width: 641px) {
+
+            .footer {
+                padding: 30px 0;
+            }
+
+            .footer .wrap {
+                padding: 0 30px;
+                max-width: 1040px;
+            }
+
+            .pull-right {
+                float: right;
+            }
+        }
+
+        table {
+            width: 100%;
+        }
+
+        table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        table th {
+            font-weight: bold;
+        }
+
+        table td, table th {
+            padding: 10px;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<div class="wrap">
+    <div class="header">
+        <div class="logo">
+            <img src="https://www.inspiringthefuture.org/wp-content/uploads/2016/10/Apprenticeships-logo-to-use-e1477663376493-768x245.png" alt="Alt text here">
+        </div>
+    </div>
+
+    <div class="hero">
+        <div data-container="true" id="container5aa80c50eae1c1535100442237">
+            <div data-editorblocktype="Image">
+                <div class="imageWrapper"><img src="https://mktdplp102usda.blob.core.windows.net/0e9d07fa-78a7-e811-a979-00224800c5e8/ZYtgZ2vShO5dEqIqoe5_fIEa31w-G213RxP4B3lvN3Q!"></div>
+            </div>
+        </div>
+
+        <div class="strapline">
+            <div data-container="true" id="container4733a285aa9741536048714759">
+                <div data-editorblocktype="Text">
+                    <p>Landing page headline</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="main">
+        <div class="hero-trio grid-row">
+            <div class="column-one-third">
+                <div class="column-image">
+                    <div data-container="true" id="container3ea2490e6609e1536048714759">
+                        <div data-editorblocktype="Image">
+                            <img src="https://mktdplp102usda.blob.core.windows.net/0b9d07fa-78a7-e811-a979-00224800c5e8/XQvQ_684Tyn2y-z489uEwKvpDopxLA6ZlUqbAAbV8ko!">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-one-third">
+                <div class="column-image">
+                    <div data-container="true" id="container3edc99dfac8861536048714759">
+                        <div data-editorblocktype="Image">
+                            <img src="https://mktdplp102usda.blob.core.windows.net/0c9d07fa-78a7-e811-a979-00224800c5e8/z1ycXSJzLjBbmipcJ2plj_4axNxLpWBXwOQsgFj0584!">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-one-third">
+                <div class="column-image">
+                    <div data-container="true" id="containerd7d9874a4fab71536048714759">
+                        <div data-editorblocktype="Image">
+                            <img src="https://mktdplp102usda.blob.core.windows.net/0d9d07fa-78a7-e811-a979-00224800c5e8/8rlNyhS0tffXxMIluTnVEnKhyAV9VB7xat0_y5yqMxc!">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h1 data-container="true" id="containere6b8ad422b8ff1535100538352">
+            <div data-editorblocktype="Text"><p>Enter your landing page title here</p>
+            </div>
+        </h1>
+
+
+
+        <div data-container="true" id="containere328e612a60781536048714759">
+            <div data-editorblocktype="Text">
+                <div class="grid-row">
+                    <div class="column-one-third">
+                        <div data-container="true" id="container100255ec360411536048714759">
+                            <p><b>1/3 column</b> Duis luctus quis ligula eu convallis. Nulla facilisi. In egestas vehicula lorem sit amet commodo. Morbi ut enim eu lorem imperdiet sodales sed congue sem.</p>
+                        </div>
+                    </div>
+                    <div class="column-two-thirds">
+                        <div data-container="true" id="container3904d9e5f421c1536048714759">
+                            <p><b>2/3 column</b> Cras sit amet dignissim arcu. Integer eget iaculis arcu, vel consectetur ipsum. Mauris tristique dui laoreet, mollis velit vitae, placerat mi. Aenean at lacus leo. Cras ultrices velit arcu. Maecenas est metus, gravida eget dui nec, tincidunt scelerisque mauris. Donec ac pharetra magna.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-container="true" id="container758da40c954271536048714759">
+            <div data-editorblocktype="Text">
+                <div class="grid-row">
+                    <div class="column-two-thirds">
+                        <div data-container="true" id="containerd233788c34ee11536048714759">
+                            <p><b>2/3 column</b> Cras sit amet dignissim arcu. Integer eget iaculis arcu, vel consectetur ipsum. Mauris tristique dui laoreet, mollis velit vitae, placerat mi. Aenean at lacus leo. Cras ultrices velit arcu. Maecenas est metus, gravida eget dui nec, tincidunt scelerisque mauris. Donec ac pharetra magna.</p>
+                        </div>
+                    </div>
+                    <div class="column-one-third">
+                        <div data-container="true" id="container86a3ee3028da21536048714759">
+                            <p><b>1/3 column</b> Duis luctus quis ligula eu convallis. Nulla facilisi. In egestas vehicula lorem sit amet commodo. Morbi ut enim eu lorem imperdiet sodales sed congue sem.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div data-container="true" id="">
+            <div data-editorblocktype="Text">
+                <div class="grid-row">
+                    <div class="column-half">
+                        <div data-container="true" id="">
+                            <p><b>1/2 column</b> Phasellus varius scelerisque nunc eu lacinia. Etiam eget nunc velit. Praesent sit amet feugiat lacus. Nam porta eu quam quis aliquet. Curabitur sodales leo vel vehicula ultrices. Quisque at rhoncus nisl. Integer rutrum rutrum luctus. Quisque tristique nisl vel felis lobortis consequat.</p>
+                        </div>
+                    </div>
+                    <div class="column-half">
+                        <div data-container="true" id="">
+                            <p><b>1/2 column</b> Phasellus varius scelerisque nunc eu lacinia. Etiam eget nunc velit. Praesent sit amet feugiat lacus. Nam porta eu quam quis aliquet. Curabitur sodales leo vel vehicula ultrices. Quisque at rhoncus nisl. Integer rutrum rutrum luctus. Quisque tristique nisl vel felis lobortis consequat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+</div>
+
+<div class="footer">
+    <div class="wrap">
+        <div class="footer-logo">
+            <img src="https://mktdplp102usda.blob.core.windows.net/557ba91a-1db0-e811-a97b-00224800c5e8/44k3NlBoeTPo0k3NgDFWg2wN8undVjnQaEBfpZeJew0!">
+        </div>
+        <div class="footer-logo pull-right">
+            <img src="https://mktdplp102usda.blob.core.windows.net/567ba91a-1db0-e811-a97b-00224800c5e8/t0Gz-crMJ7qAtxTf2o8G4EzMb5jGNeZJ6Iye0K35_-M!">
+        </div>
+    </div>
+</div>
+
+
+</body></html>
